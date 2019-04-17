@@ -26,6 +26,9 @@ ALTER TABLE ONLY lter_metabase."DataSetMissingCodes"
 	"FK_DatasetMissingCode_CodeID" FOREIGN KEY ("CodeID") REFERENCES lter_metabase."EMLMissingCodes"("CodeID") ON UPDATE CASCADE;
 	
 ALTER TABLE ONLY lter_metabase."DataSetMissingCodes"
+    ADD CONSTRAINT "FK_DataSet_SortOrder_ColumnName" FOREIGN KEY ("DataSetID", "EntitySortOrder", "ColumnName") REFERENCES lter_metabase."DataSetAttributes"("DataSetID", "EntitySortOrder", "ColumnName") ON UPDATE CASCADE;
+	
+ALTER TABLE ONLY lter_metabase."DataSetMissingCodes"
     ADD CONSTRAINT "PK_DataSetMissingCodes" PRIMARY KEY ("DataSetID", "EntitySortOrder", "ColumnName", "CodeID");
 	
 CREATE VIEW mb2eml_r.vw_eml_missingcodes AS
