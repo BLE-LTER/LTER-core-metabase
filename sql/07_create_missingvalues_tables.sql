@@ -31,8 +31,8 @@ ALTER TABLE ONLY lter_metabase."DataSetMissingCodes"
 ALTER TABLE ONLY lter_metabase."DataSetMissingCodes"
     ADD CONSTRAINT "PK_DataSetMissingCodes" PRIMARY KEY ("DataSetID", "EntitySortOrder", "ColumnName", "CodeID");
 	
-CREATE VIEW mb2eml_r.vw_eml_missingcodes AS
-SELECT d."DataSetID" as datasetid, d."EntitySortOrder" as entity_position, d."ColumnName" as "attributeName", e."MissingValueCode" as "MissingValueCode", e."MissingValueCodeExplanation" as "MissingValueCodeExplanation" FROM (lter_metabase."DataSetMissingCodes" d JOIN lter_metabase."EMLMissingCodes" e ON (((d."CodeID")::text = (e."CodeID")::text))) ORDER BY d."DataSetID";
+CREATE OR REPLACE VIEW mb2eml_r.vw_eml_missingcodes AS
+SELECT d."DataSetID" as datasetid, d."EntitySortOrder" as entity_position, d."ColumnName" as "attributeName", e."MissingValueCode" as code, e."MissingValueCodeExplanation" as definition FROM (lter_metabase."DataSetMissingCodes" d JOIN lter_metabase."EMLMissingCodes" e ON (((d."CodeID")::text = (e."CodeID")::text))) ORDER BY d."DataSetID";
 
 ALTER TABLE mb2eml_r.vw_eml_missingcodes OWNER TO %db_owner%;
 
