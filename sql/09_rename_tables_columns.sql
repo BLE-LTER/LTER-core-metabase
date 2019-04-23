@@ -4,6 +4,8 @@
 -- DO NOT run if you are not sure of the consequences.
 ALTER TABLE lter_metabase."DataSetAttributes" RENAME TO lter_metabase."Attributes";
 
+ALTER TABLE lter_metabase."DataSetEntities" RENAME TO lter_metabase."Entities";
+
 ALTER TABLE lter_metabase."People" RENAME TO lter_metabase."PeopleList";
 
 ALTER TABLE lter_metabase."Peopleidentification" RENAME TO lter_metabase."PeopleIDList";
