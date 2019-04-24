@@ -2,6 +2,9 @@
 
 -- This script cleans up table and column names.
 -- DO NOT run if you are not sure of the consequences.
+
+ALTER TABLE lter_metabase."DataSet" RENAME TO lter_metabase."DataSets";
+
 ALTER TABLE lter_metabase."DataSetAttributes" RENAME TO lter_metabase."Attributes";
 
 ALTER TABLE lter_metabase."DataSetEntities" RENAME TO lter_metabase."Entities";
@@ -29,3 +32,5 @@ ALTER TABLE lter_metabase."EMLMeasurementScaleList" RENAME TO lter_metabase."EML
 ALTER TABLE lter_metabase."EMLNumberTypeList" RENAME TO lter_metabase."EMLNumberTypes";
 
 ALTER TABLE lter_metabase."EMLStorageTypeList" RENAME TO lter_metabase."EMLStorageTypes";
+
+ALTER TABLE lter_metabase."EMLUnitDictionary" RENAME TO lter_metabase."UnitList";
